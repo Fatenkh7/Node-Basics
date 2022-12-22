@@ -58,7 +58,7 @@ function unknownCommand(c) {
  * @returns {void}
  */
 function hello() {
-  console.log("hello!");
+  console.log("helloo!");
 }
 
 /**
@@ -72,4 +72,4 @@ function quit() {
 }
 
 // The following line starts the application
-startApp("Faten khoder");
+startApp("Jad sarout");
