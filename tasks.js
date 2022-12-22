@@ -51,7 +51,7 @@ function onDataReceived(text) {
  * @returns {void}
  */
 function unknownCommand(c) {
-  console.log('unknown command:  "' + c.trim() + '"');
+  console.log('unknown command: "' + c.trim() + '"');
 }
 
 /**
@@ -79,7 +79,13 @@ function quit() {
  * @returns {void}
  */
 function help() {
-  console.log("Commands:\n" + "  quit\n" + "exit\n" + "  hello\n");
+  console.log(
+    "Commands:\n" +
+      "  quit\n" +
+      "exit\n" +
+      "  hello " +
+      "'if you want you can add everything'\n"
+  );
 }
 
 // The following line starts the application
