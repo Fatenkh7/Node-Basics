@@ -38,6 +38,8 @@ function onDataReceived(text) {
     hello(text);
   } else if (text === "help\n") {
     help();
+  } else if (text === "list\n") {
+    list();
   } else {
     unknownCommand(text);
   }
@@ -85,6 +87,15 @@ function help() {
       "exit\n" +
       "  hello " +
       "'if you want you can add everything'\n"
+  );
+}
+let arr = ["buy bread", "get potato", "get ketchup"];
+/**
+ * @returns {void}
+ */
+function list() {
+  let list = arr.map((element) =>
+    console.log(arr.indexOf(element) + 1 + "-" + element)
   );
 }
 
