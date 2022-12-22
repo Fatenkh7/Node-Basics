@@ -72,7 +72,12 @@ function quit() {
   console.log("Quitting now, goodbye ;) !");
   process.exit();
 }
-/** help */
+/**
+ * prints "help"
+ *  this function to help you what is the available command.
+ * @param  {string} c the text received
+ * @returns {void}
+ */
 function help() {
   console.log("Commands:\n" + "  quit\n" + "exit\n" + "  hello\n");
 }
