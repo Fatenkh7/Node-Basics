@@ -51,7 +51,7 @@ function onDataReceived(text) {
  * @returns {void}
  */
 function unknownCommand(c) {
-  console.log('unknown command: "' + c.trim() + '"');
+  console.log('unknown command:  "' + c.trim() + '"');
 }
 
 /**
