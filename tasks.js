@@ -104,12 +104,20 @@ function help() {
  *list to show the elements
 
  */
-let arr = ["buy bread", "get potato", "get ketchup"];
+let arr = [
+  { task: "buy bread", done: false },
+  { task: "get potato", done: true },
+  { task: "get ketchup", done: true },
+];
+
 /**
  * @returns {void}
  */
 function list() {
-  arr.map((element) => console.log(arr.indexOf(element) + 1 + "-" + element));
+  arr.map((element, index) => {
+    let output = element.done ? "[✓]" + element.task : "[ ]" + element.task;
+    console.log(index + 1 + output);
+  });
 }
 
 /**
@@ -118,7 +126,11 @@ function list() {
  * @returns {void}
  */
 function add(text) {
-  arr.push(text.substring(4));
+  if (text === "add\n") {
+    console.log("error");
+  } else {
+    arr.push({ task: text.substring(4), done: false });
+  }
 }
 /**
  * remove the elments
@@ -140,15 +152,13 @@ function remove(text) {
  * @returns {void}
  */
 function edit(text) {
-  if (text == "edit\n") {
+  if (text.slice(4).trim() == "") {
     console.log("error");
-  } else {
-    newT = text.trim().split(" ")[1];
-    if (!parseInt(newT)) {
-      arr[arr.length - 1] = newT;
-    } else {
-      arr[newT - 1] = text.trim().replace(`edit ${newT} `, "");
-    }
+  } else if (parseInt(text.substring(5)) < arr.length) {
+    arr[parseInt(text.substring(4)) - 1].task = text.substring(6).trim();
+  } else if (isNaN(text.substring(4))) {
+    arr.pop();
+    arr.push({ task: text.slice(4).trim(), done: false });
   }
 }
 // The following line starts the application
