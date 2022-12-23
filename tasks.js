@@ -42,7 +42,7 @@ function onDataReceived(text) {
     list();
   } else if (text.startsWith("add")) {
     add(text);
-  } else if (text === "remove\n") {
+  } else if (text.startsWith("remove\n")) {
     remove(text);
   } else {
     unknownCommand(text);
@@ -114,11 +114,11 @@ function list() {
  * @returns {void}
  */
 function add(text) {
-  arr.push(text.substring(3));
+  arr.push(text.substring(4));
 }
 /**
  * remove last elment
- *@param  {string} c the text received
+ *
  * @returns {void}
  */
 function remove(text) {
