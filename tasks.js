@@ -14,7 +14,23 @@ function startApp(name) {
   process.stdin.on("data", onDataReceived);
   console.log(`Welcome to ${name}'s application!`);
   console.log("--------------------");
+
+  try {
+    arr = JSON.parse(fs.readFileSync("database.json").toString());
+  } catch (error) {
+    console.log("error");
+  }
 }
+//fs
+var fs = require("fs");
+//read file
+var data = fs.readFileSync("database.json", "utf8");
+//split data
+var lines = data.split("\n");
+//split lines
+var lines = lines.map(function (line) {
+  return line.split("\t");
+});
 
 /**
  * Decides what to do depending on the data that was received
@@ -82,6 +98,11 @@ function hello(text) {
  */
 function quit() {
   console.log("Quitting now, goodbye ;) !");
+  try {
+    fs.writeFileSync("database.json", JSON.stringify(arr, null, 3));
+  } catch (error) {
+    console.log("error");
+  }
   process.exit();
 }
 /**
