@@ -44,6 +44,8 @@ function onDataReceived(text) {
     add(text);
   } else if (text.startsWith("remove")) {
     remove(text);
+  } else if (text.startsWith("edit")) {
+    edit(text);
   } else {
     unknownCommand(text);
   }
@@ -118,7 +120,7 @@ function add(text) {
   arr.push(text.substring(4));
 }
 /**
- * remove last elment
+ * remove the elments
  *
  * @returns {void}
  */
@@ -131,6 +133,22 @@ function remove(text) {
     arr.splice(parseInt(text.substring(6)) - 1, 1);
   }
 }
-
+/**
+ * adds elements to the list
+ *@param  {string} c the text received
+ * @returns {void}
+ */
+function edit(text) {
+  if (text == "edit\n") {
+    console.log("error");
+  } else {
+    newT = text.trim().split(" ")[1];
+    if (!parseInt(newT)) {
+      arr[arr.length - 1] = newT;
+    } else {
+      arr[newT - 1] = text.trim().replace(`edit ${newT} `, "");
+    }
+  }
+}
 // The following line starts the application
 startApp("Faten khoder");
