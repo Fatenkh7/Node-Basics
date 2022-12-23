@@ -89,6 +89,8 @@ function help() {
     "Commands:\n" +
       "  quit\n" +
       "exit\n" +
+      "add\n" +
+      "remove\n" +
       "  hello " +
       "'if you want you can add everything'\n"
   );
