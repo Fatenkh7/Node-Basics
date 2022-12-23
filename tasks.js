@@ -125,6 +125,8 @@ function add(text) {
 function remove(text) {
   if (text.slice(6).trim() == "") {
     arr.pop();
+  } else if (parseInt(text.substring(6)) > arr.length) {
+    console.log("this number dosen't exist");
   } else {
     arr.splice(parseInt(text.substring(6)) - 1, 1);
   }
