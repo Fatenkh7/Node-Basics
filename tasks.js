@@ -8,6 +8,15 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+let inputjson = "./database.json";
+
+if (process.argv[2]) {
+  inputjson = "./blah.json";
+
+  console.log("----------------");
+} else {
+  inputjson = "./database.json";
+}
 function startApp(name) {
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
@@ -104,6 +113,16 @@ function quit() {
     console.log("error");
   }
   process.exit();
+}
+function readData() {
+  fs.readFile(inputjson, (data) => {
+    try {
+      let tasks = JSON.parse(data);
+      // console.log(arrayObject);
+    } catch (error) {
+      console.error("Invalid -> Empty database");
+    }
+  });
 }
 /**
  * prints "help"

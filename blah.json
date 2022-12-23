@@ -1,0 +1,5 @@
+[
+  { "task": "buy bread", "done": false },
+  { "task": "get potato", "done": true },
+  { "task": "get ketchup", "done": true }
+]
