@@ -42,7 +42,7 @@ function onDataReceived(text) {
     list();
   } else if (text.startsWith("add")) {
     add(text);
-  } else if (text.startsWith("remove\n")) {
+  } else if (text.startsWith("remove")) {
     remove(text);
   } else {
     unknownCommand(text);
@@ -91,6 +91,7 @@ function help() {
       "exit\n" +
       "add\n" +
       "remove\n" +
+      "list\n" +
       "  hello " +
       "'if you want you can add everything'\n"
   );
@@ -122,7 +123,13 @@ function add(text) {
  * @returns {void}
  */
 function remove(text) {
-  arr.pop(text);
+  if (text.slice(6).trim() == "") {
+    arr.pop();
+  } else if (parseInt(text.substring(6)) > arr.length) {
+    console.log("this number is not exist");
+  } else {
+    arr.splice(parseInt(text.substring(6)) - 1, 1);
+  }
 }
 
 // The following line starts the application
