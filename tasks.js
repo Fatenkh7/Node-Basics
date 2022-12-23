@@ -46,6 +46,10 @@ function onDataReceived(text) {
     remove(text);
   } else if (text.startsWith("edit")) {
     edit(text);
+  } else if (text.startsWith("check")) {
+    check(text);
+  } else if (text.startsWith("uncheck")) {
+    uncheck(text);
   } else {
     unknownCommand(text);
   }
@@ -159,6 +163,23 @@ function edit(text) {
   } else if (isNaN(text.substring(4))) {
     arr.pop();
     arr.push({ task: text.slice(4).trim(), done: false });
+  }
+}
+
+//check function
+function check(text) {
+  if (text.slice(5).trim() == "") {
+    console.log("error");
+  } else {
+    arr[parseInt(text.slice(6).trim()) - 1].done = true;
+  }
+}
+//uncheck function
+function uncheck(text) {
+  if (text.slice(7).trim() == "") {
+    console.log("error");
+  } else {
+    arr[parseInt(text.slice(8).trim()) - 1].done = false;
   }
 }
 // The following line starts the application
