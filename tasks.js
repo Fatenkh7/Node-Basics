@@ -95,7 +95,8 @@ function help() {
       "remove\n" +
       "list\n" +
       "  hello " +
-      "'if you want you can add everything'\n"
+      "'if you want you can add everything'\n" +
+      "edit what u want to replace"
   );
 }
 
@@ -134,7 +135,7 @@ function remove(text) {
   }
 }
 /**
- * adds elements to the list
+ * replace elements to the list
  *@param  {string} c the text received
  * @returns {void}
  */
