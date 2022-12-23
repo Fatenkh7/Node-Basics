@@ -42,6 +42,8 @@ function onDataReceived(text) {
     list();
   } else if (text.startsWith("add")) {
     add(text);
+  } else if (text === "remove\n") {
+    remove(text);
   } else {
     unknownCommand(text);
   }
@@ -105,12 +107,20 @@ function list() {
 }
 
 /**
- * adds two numbers
+ * adds elements to the list
  *@param  {string} c the text received
  * @returns {void}
  */
 function add(text) {
   arr.push(text.substring(3));
+}
+/**
+ * remove last elment
+ *@param  {string} c the text received
+ * @returns {void}
+ */
+function remove(text) {
+  arr.pop(text);
 }
 
 // The following line starts the application
