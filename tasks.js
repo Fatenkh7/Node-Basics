@@ -40,6 +40,8 @@ function onDataReceived(text) {
     help();
   } else if (text === "list\n") {
     list();
+  } else if (text.startsWith("add")) {
+    add(text);
   } else {
     unknownCommand(text);
   }
@@ -89,14 +91,26 @@ function help() {
       "'if you want you can add everything'\n"
   );
 }
+
+/**
+ *list to show the elements
+
+ */
 let arr = ["buy bread", "get potato", "get ketchup"];
 /**
  * @returns {void}
  */
 function list() {
-  let list = arr.map((element) =>
-    console.log(arr.indexOf(element) + 1 + "-" + element)
-  );
+  arr.map((element) => console.log(arr.indexOf(element) + 1 + "-" + element));
+}
+
+/**
+ * adds two numbers
+ *@param  {string} c the text received
+ * @returns {void}
+ */
+function add(text) {
+  arr.push(text.substring(3));
 }
 
 // The following line starts the application
