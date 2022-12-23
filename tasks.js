@@ -100,7 +100,9 @@ function help() {
       "list\n" +
       "  hello " +
       "'if you want you can add everything'\n" +
-      "edit what u want to replace"
+      "edit what u want to replace\n" +
+      "check    :to check if the task is done\n" +
+      "uncheck  :to uncheck the task\n"
   );
 }
 
